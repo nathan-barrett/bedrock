@@ -78,6 +78,20 @@ $image-path: '/media/protocol/img';
         }
     }
 
+    .mzp-l-sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        &.mzp-c-sidemenu-absolute {
+            position: absolute;
+            overflow: visible;
+            top: revert;
+            bottom: 0;
+            left: 0;
+        }
+    }
+
     .mzp-c-sidemenu {
         position: relative;
 
@@ -85,13 +99,11 @@ $image-path: '/media/protocol/img';
             padding-top: 120px;
 
             @media #{$mq-md} {
-                height: 100%;
+                height: max-content;
                 left: 0;
                 overflow-y: auto;
-                position: fixed;
                 z-index: 1;
                 width: 280px;
-                top: 0;
                 padding-top: 110px;
             }
 
@@ -100,16 +112,9 @@ $image-path: '/media/protocol/img';
             }
         }
 
-        .mzp-c-sidemenu-absolute {
-            position: absolute;
-            top: unset;
-            overflow: visible;
-            bottom: unset;
-        }
-
         .toc {
             overflow: auto;
-            height: 1240px;
+            height: 600px;
             width: 250px;
 
             ul {
