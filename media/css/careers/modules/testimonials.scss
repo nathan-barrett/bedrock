@@ -15,42 +15,6 @@
         }
     }
 
-    div {
-        .c-careers-testimonials-wrapper {
-            display: grid;
-
-            @media #{$mq-md} {
-                grid-template-rows: repeat(3, 1fr);
-                grid-template-columns: repeat(2, 1fr);
-
-                // li:nth-child(1) {
-                //     border: 0;
-                //     box-shadow: none;
-                //     grid-row: 1;
-                //     grid-column: 1;
-                //     display: flex;
-                //     align-items: center;
-                //     justify-content: center;
-                // }
-
-                // li:nth-child(2) {
-                //     grid-row: 1;
-                //     grid-column: 2;
-                // }
-
-                // li:nth-child(3) {
-                //     grid-row: 2;
-                //     grid-column: 1;
-                // }
-
-                // li:nth-child(4) {
-                //     grid-row: 3;
-                //     grid-column: 2;
-                // }
-            }
-        }
-    }
-
     blockquote {
         @include text-title-xs;
 
@@ -102,4 +66,58 @@
         border-radius: 0 0 $border-radius-md $border-radius-md;
         box-shadow: 10px 10px 0 $color-light-gray-40;
     }
+}
+
+.mzp-c-modal {
+    .mzp-c-modal-inner {
+        background-color: $color-white;
+    }
+}
+
+.mzp-c-modal-close {
+    background: $color-green-40;
+    border-radius: 100%;
+
+    button {
+        cursor: pointer;
+    }
+
+    .mzp-c-modal-button-close {
+        background-image: url('/media/protocol/img/icons/close.svg');
+    }
+}
+
+.c-modal-next {
+    @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
+    right: 3.75rem;
+
+    .hide-next & {
+        display: none;
+    }
+
+    .c-modal-button-next {
+        background-image: url('/media/protocol/img/icons/arrow-right.svg');
+    }
+}
+
+.c-modal-prev {
+    @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
+    right: 7.1rem;
+
+    .hide-next & {
+        right: 3.75rem;
+    }
+
+    .hide-prev & {
+        display: none;
+    }
+
+    .c-modal-button-prev {
+        background-image: url('/media/protocol/img/icons/arrow-left.svg');
+    }
+}
+
+.c-modal-button-next,
+.c-modal-button-prev {
+    @extend .mzp-c-modal-button-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
 }

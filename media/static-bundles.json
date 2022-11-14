@@ -1844,6 +1844,13 @@
     {
       "files": [
         "protocol/js/protocol-modal.js",
+        "js/careers/testimonials-modal.es6.js"
+      ],
+      "name": "careers-testimonials"
+    },
+    {
+      "files": [
+        "protocol/js/protocol-modal.js",
         "js/mozorg/diversity/2021/diversity-2021.es6.js"
       ],
       "name": "diversity-2021"
