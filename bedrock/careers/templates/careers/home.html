@@ -6,52 +6,10 @@
 
 {% extends "careers/base.html" %}
 
-{% from "macros.html" import sub_nav with context %}
-
 {% block page_title %}Mozilla Careers — Feel good about your work again.{% endblock %}
 {% block page_desc %}At Mozilla, you can pursue your future while working to protect the future of the internet for everyone, everywhere.{% endblock %}
 
-{% block sub_navigation %}
-{{ sub_nav(
-  title={
-    'text': "Mozilla Careers"
-  },
-  links=[
-  {
-    'text': "Overview",
-    'href': url('careers.home'),
-    'cta_name': "Careers overview"
-  },
-  {
-    'text': "Benefits",
-    'href': url('careers.benefits'),
-    'cta_name': "Mozilla benefits"
-  },
-  {
-    'text': "Teams",
-    'href': url('careers.teams'),
-    'cta_name': "Mozilla teams"
-  },
-  {
-    'text': "Diversity & Inclusion",
-    'href': url('careers.diversity'),
-    'cta_name': "Mozilla Diversity and inclusion"
-  },
-  {
-    'text': "Locations",
-    'href': url('careers.locations'),
-    'cta_name': "Mozilla office locations"
-  },
-  {
-    'text': "Job Listings",
-    'href': url('careers.listings'),
-    'cta_name': "Mozilla job listings"
-  },]
-) }}
-{% endblock %}
-
 {% block careers_content %}
-
 <!-- Hero -->
   <header class="c-careers-video-hero">
     <div class="c-video-wrapper">
@@ -64,11 +22,10 @@
         block_class='mzp-l-split-center-on-sm-md',
         media_class='mzp-l-split-h-center',
         media_include='careers/includes/big-picture-video.html',
-        image_url='img/careers/careers-video-thumbnail.webp',
         media_after=True
         ) %}
-        <h1>Good work that does you good</h1>
-        <a href="{{ url('careers.listings') }}" data-cta-tytpe="button" data-cta-name="careers-listings" class="mzp-c-button mzp-t-product">Find your role at Mozilla</a>
+          <h1>Good work that does you good</h1>
+          <p><a href="{{ url('careers.listings') }}" class="mzp-c-button mzp-t-product">Find your role at Mozilla</a></p>
         {% endcall %}
       </div>
   </header>
@@ -360,4 +317,8 @@
 
 <!-- end blog content -->
 
+{% endblock %}
+
+{% block js %}
+  {{ js_bundle('careers-hero-video') }}
 {% endblock %}

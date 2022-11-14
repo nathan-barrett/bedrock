@@ -4,7 +4,7 @@
  file, You can obtain one at https://mozilla.org/MPL/2.0/.
 #}
 
-{% extends "careers/home.html" %}
+{% extends "careers/base.html" %}
 
 {% block careers_content %}
 
@@ -20,11 +20,10 @@
         block_class='mzp-l-split-center-on-sm-md',
         media_class='mzp-l-split-h-center',
         media_include='careers/includes/diversity-video.html',
-        image_url='img/careers/diversity-video-thumbnail.png',
         media_after=True
         ) %}
-        <h1>Diversity & inclusion at Mozilla</h1>
-        <a href="{{ url('mozorg.diversity.2021.index') }}" class="mzp-c-button mzp-t-product" data-cta-type="button" data-cta-name="D&I 2021">View our 2021 D&I Report</a>
+          <h1>Diversity & inclusion at Mozilla</h1>
+          <p><a href="{{ url('mozorg.diversity.2021.index') }}" class="mzp-c-button mzp-t-product">View our 2021 D&I Report</a></p>
         {% endcall %}
       </div>
   </header>
@@ -254,4 +253,8 @@
     {% endif %}
   </section>
 
+{% endblock %}
+
+{% block js %}
+  {{ js_bundle('careers-hero-video') }}
 {% endblock %}

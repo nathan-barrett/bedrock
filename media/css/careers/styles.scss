@@ -2,7 +2,10 @@
 // License, v. 2.0. If a copy of the MPL was not distributed with this
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
+$image-path: '/media/protocol/img';
+
 @use './modules/heroes.scss';
+@use './modules/hero-video.scss';
 @use './modules/home.scss';
 @use './modules/testimonials.scss';
 @use './modules/locations.scss';
@@ -11,6 +14,8 @@
 @use './modules/bottom.scss';
 
 @import '~@mozilla-protocol/core/protocol/css/includes/lib';
+@import '~@mozilla-protocol/core/protocol/css/components/modal';
+@import '~@mozilla-protocol/core/protocol/css/components/video';
 
 .c-careers {
     .mzp-l-content {
