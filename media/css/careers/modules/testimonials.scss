@@ -3,11 +3,13 @@
 // file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
 @use '../utils' as cp;
+
+$image-path: '/media/protocol/img';
+
 @import '~@mozilla-protocol/core/protocol/css/includes/lib';
+@import '~@mozilla-protocol/core/protocol/css/components/modal';
 
 .c-careers-testimonials {
-    // background-color: cp.$blue-light;
-
     // Hide pull quotes section if JS is disabled
     &.no-js-hidden {
         .no-js & {
@@ -67,7 +69,7 @@
         width: 100%;
 
         blockquote {
-            @include text-title-xs;
+            @include text-title-2xs;
             font-weight: 400;
             border: 0;
 
@@ -124,50 +126,51 @@
     }
 }
 
-.mzp-c-modal-close {
-    background: cp.$teal-primary;
-    border-radius: 100%;
+// styling modal controls
+.c-careers-full-testimonial-wrapper {
+    .mzp-c-modal-close {
+        background: $color-black;
+        border-radius: 100%;
 
-    button {
-        cursor: pointer;
+        button {
+            cursor: pointer;
+        }
     }
 
-    .mzp-c-modal-button-close {
-        background-image: url('/media/protocol/img/icons/close.svg');
-    }
-}
-
-.c-modal-next {
-    @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
-    right: 3.75rem;
-
-    .hide-next & {
-        display: none;
-    }
-
-    .c-modal-button-next {
-        background-image: url('/media/protocol/img/icons/arrow-right.svg');
-    }
-}
-
-.c-modal-prev {
-    @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
-    right: 7.1rem;
-
-    .hide-next & {
+    .c-modal-next {
+        @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
+        background: cp.$teal-primary;
         right: 3.75rem;
+
+        .hide-next & {
+            display: none;
+        }
+
+        .c-modal-button-next {
+            background-image: url('/media/protocol/img/icons/arrow-right.svg');
+        }
     }
 
-    .hide-prev & {
-        display: none;
+    .c-modal-prev {
+        @extend .mzp-c-modal-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder  */
+        background: cp.$teal-primary;
+        right: 7.1rem;
+
+        .hide-next & {
+            right: 3.75rem;
+        }
+
+        .hide-prev & {
+            display: none;
+        }
+
+        .c-modal-button-prev {
+            background-image: url('/media/protocol/img/icons/arrow-left.svg');
+        }
     }
 
+    .c-modal-button-next,
     .c-modal-button-prev {
-        background-image: url('/media/protocol/img/icons/arrow-left.svg');
+        @extend .mzp-c-modal-button-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
     }
-}
-
-.c-modal-button-next,
-.c-modal-button-prev {
-    @extend .mzp-c-modal-button-close; /* stylelint-disable-line scss/at-extend-no-missing-placeholder */
 }
