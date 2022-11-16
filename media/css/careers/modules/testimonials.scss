@@ -58,24 +58,74 @@
             @include hidden;
         }
     }
+}
+
+.mzp-c-modal-inner.c-careers-full-testimonial-wrapper {
+    background-color: $color-white;
 
     .c-careers-testimonials-modal {
-        @include font-base;
-        @include text-body-sm;
-        border: 3px solid $color-black;
-        border-radius: 0 0 $border-radius-md $border-radius-md;
-        box-shadow: 10px 10px 0 $color-light-gray-40;
+        width: 100%;
+
+        blockquote {
+            @include text-title-xs;
+            font-weight: 400;
+            border: 0;
+
+            .c-careers-testimonial-quote {
+                position: relative;
+
+                p:nth-of-type(1n) {
+                    &::before {
+                        @include text-title-md;
+                        content: '“';
+                        position: absolute;
+                        top: -15px;
+                        left: -20px;
+                        color: cp.$teal-primary;
+                        font-weight: bold;
+                    }
+                }
+
+                p:last-of-type {
+                    &::after {
+                        @include text-title-md;
+                        content: '”';
+                        position: absolute;
+                        bottom: -15px;
+                        color: cp.$teal-primary;
+                        font-weight: bold;
+                    }
+                }
+            }
+        }
     }
 }
 
-.mzp-c-modal {
-    .mzp-c-modal-inner {
-        background-color: $color-white;
+// Styling modal citation section
+.c-testimonials-citation {
+    border-left: 4px solid cp.$teal-primary;
+    padding-left: $spacing-lg;
+
+    cite {
+        @include text-title-sm;
+        font-weight: 700;
+        font-style: normal;
+
+        &::before {
+            content: '';
+        }
+    }
+
+    p {
+        @include text-body-xs;
+        @include font-base;
+        font-weight: 700;
+        margin-bottom: 0;
     }
 }
 
 .mzp-c-modal-close {
-    background: $color-green-40;
+    background: cp.$teal-primary;
     border-radius: 100%;
 
     button {

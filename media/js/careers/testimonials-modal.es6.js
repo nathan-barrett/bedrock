@@ -8,6 +8,8 @@ const modalContainers = document.getElementsByClassName('has-modal');
 const content = document.querySelector('.mzp-u-modal-content');
 const articleArray = document.querySelectorAll('[data-modal-id]');
 
+content.classList.add('c-careers-full-testimonial-content');
+
 // Setting up directional buttons
 const modalNextButtonFragment = `<div class="c-modal-next">
         <button type="button" class="c-modal-button-next" title="Next">
@@ -151,6 +153,18 @@ for (let i = 0; i < modalContainers.length; i++) {
             allowScroll: false,
             closeText: window.Mozilla.Utils.trans('global-close'),
             onCreate: function () {
+                const contentParent = content.parentElement;
+                contentParent.classList.add(
+                    'c-careers-full-testimonial-wrapper',
+                    'mzp-l-content',
+                    'mzp-t-content-lg'
+                );
+                // removes video modal content that is loading because of similar modal classnames
+                const video = content.querySelector('.mzp-c-video');
+                if (video) {
+                    content.removeChild(video);
+                }
+
                 content.appendChild(modalContent);
 
                 content.setAttribute('data-current-index', currentIndex);
@@ -180,7 +194,7 @@ for (let i = 0; i < modalContainers.length; i++) {
 
                 kbInit = false;
 
-                // Recache the current modal content which may have changed via next/prev buttons
+                // Re-cache the current modal content which may have changed via next/prev buttons
                 const modalParent = document.querySelector(
                     '.mzp-u-modal-content.mzp-c-modal-overlay-contents'
                 );
